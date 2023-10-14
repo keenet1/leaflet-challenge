@@ -80,11 +80,12 @@ function createMap(earthquakes) {
     var div = L.DomUtil.create("div", "info legend"),
     grades = [-10, 10, 30, 50, 70, 90];
 
+    div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
+
     // Looping through our intervals and generating a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            '<i style="background:' + markerColor(grades[i] + 1) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
     }
     return div;
 };
