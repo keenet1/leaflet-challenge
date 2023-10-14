@@ -16,38 +16,25 @@ function markerSize(magnitude) {
 
 // Funtion for marker color (based on earthquake depth)
 function markerColor(depth) {
-    if (depth >= 90) {
-        color = "#ff0000";
-    }
-    else if (depth < 90 && depth >= 70) {
-        color = "#ff5500";
-    }
-    else if (depth < 70 && depth >= 50) {
-        color = "#ffaa00";
-    }
-    else if (depth < 50 && depth >= 30) {
-        color = "#ffd500";
-    }
-    else if (depth < 30 && depth >= 10) {
-        color = "#15ea00";
-    }
-    else if (depth < 10 && depth >= -10) {
-        color = "#00ff00";
-    };
-
-    return color;
-};
+    if (depth >= 90) return "#ff0000";
+    else if (depth < 90) return "#ff5500";
+    else if (depth < 70) return "#ffaa00";
+    else if (depth < 50) return "#ffd500";
+    else if (depth < 30) return "#15ea00";
+    else if (depth < 10) return "#00ff00";
+    else return "#ff0000";
+}
 
 function createAttributes(earthquakeData) {
 
     // Function for defining what information to display in the pop up when each feature is clicked
-    function OnMouseClick(feature, layer) {
+    function onEachFeature(feature, layer) {
         layer.bindPopup(`Location: ${feature.properties.place} <br> Magnitude: ${feature.properties.mag} <br> Depth: {feature.geometry.coordinates[2]}`);
     }
 
     // Create a GeoJSON layer that contains the features (location, magnitude, depth) for each earthquakeData object.
     var earthquakes = L.geoJSON(earthquakeData, {
-        OnMouseClick : OnMouseClick,
+        onEachFeature : onEachFeature,
 
         // pointToLayer function
         pointToLayer : function(feature, latlng) {
@@ -56,7 +43,7 @@ function createAttributes(earthquakeData) {
             var markers = {
                 radius : markerSize(feature.properties.mag),
                 fillcolor : markerColor(feature.geometry.coordinates[2]),
-                fillOpacity : 0.5
+                fillOpacity : 0.5,
                 color : "black",
                 stroke : true,
                 weight : 0.5
@@ -91,7 +78,7 @@ function createMap(earthquakes) {
   var legend = L.control({position : bottomright});
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend"),
-    depth = [-10, 10, 30, 50, 70, 90];
+    grades = [-10, 10, 30, 50, 70, 90];
 
     // Looping through our intervals and generating a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
