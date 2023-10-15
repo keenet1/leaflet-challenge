@@ -16,12 +16,12 @@ function markerSize(magnitude) {
 
 // Funtion for marker color (based on earthquake depth)
 function markerColor(depth) {
-    return depth >= 90 ? "#FF0000" :
-        depth < 90 && depth >= 70 ? "#FF5500" :
-        depth < 70 && depth >= 50 ? "#FFAA00" :
-        depth < 50 && depth >= 30 ? "#FFD500" :
-        depth < 30 && depth >= 10 ? "#15EA00" :
-                                    "#00FF00" ;
+    if (depth >= 90) return "#FF0000";
+    else if (depth < 90) return "#FF5500";
+    else if (depth < 70) return "#FFAA00";
+    else if (depth < 50) return "#FFD500";
+    else if (depth < 30) return "#15EA00";
+    else if (depth < 10) return "#00FF00";
 }
 
 function createAttributes(earthquakeData) {
@@ -59,10 +59,10 @@ function createMap(earthquakes) {
     // Create tile layer
     var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-        tileSize: 300,
+        tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
-        style:    'mapbox/light-v11',
+        id: "mapbox/light-v11",
         access_token: api_key
     });
 
