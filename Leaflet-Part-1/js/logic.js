@@ -16,13 +16,12 @@ function markerSize(magnitude) {
 
 // Funtion for marker color (based on earthquake depth)
 function markerColor(depth) {
-    if (depth >= 90) return "#ff0000";
-    else if (depth < 90) return "#ff5500";
-    else if (depth < 70) return "#ffaa00";
-    else if (depth < 50) return "#ffd500";
-    else if (depth < 30) return "#15ea00";
-    else if (depth < 10) return "#00ff00";
-    else return "#ff0000";
+    return depth >= 90 ? "#ff0000" :
+        depth < 90 && depth >= 70 ? "#ff5500" :
+        depth < 70 && depth >= 50 ? "#ffaa00" :
+        depth < 50 && depth >= 30 ? "#ffd500" :
+        depth < 30 && depth >= 10 ? "#15ea00" :
+                                    "#00ff00" ;
 }
 
 function createAttributes(earthquakeData) {
@@ -70,7 +69,7 @@ function createMap(earthquakes) {
   // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
   var myMap = L.map("map", {
     center: [37.6000, -95.6650],
-    zoom: 10,
+    zoom: 2,
     layers: [grayscale, earthquakes]
   });
 
