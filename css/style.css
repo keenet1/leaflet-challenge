@@ -9,16 +9,9 @@ html {
   height: 100%;
 }
 
-/* Set Legend Style */
-.info {
-  padding: 1px 10px;
-  background: #fefffe;
-  border-radius: 5px;
-}
-
 .legend {
   line-height: 25px;
-  color: #000000;
+  color: #d8d0d0;
 }
 
 .legend i {
