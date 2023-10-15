@@ -16,12 +16,12 @@ function markerSize(magnitude) {
 
 // Funtion for marker color (based on earthquake depth)
 function markerColor(depth) {
-    return depth >= 90 ? "#ff0000" :
-        depth < 90 && depth >= 70 ? "#ff5500" :
-        depth < 70 && depth >= 50 ? "#ffaa00" :
-        depth < 50 && depth >= 30 ? "#ffd500" :
-        depth < 30 && depth >= 10 ? "#15ea00" :
-                                    "#00ff00" ;
+    return depth >= 90 ? "#FF0000" :
+        depth < 90 && depth >= 70 ? "#FF5500" :
+        depth < 70 && depth >= 50 ? "#FFAA00" :
+        depth < 50 && depth >= 30 ? "#FFD500" :
+        depth < 30 && depth >= 10 ? "#15EA00" :
+                                    "#00FF00" ;
 }
 
 function createAttributes(earthquakeData) {
@@ -41,9 +41,9 @@ function createAttributes(earthquakeData) {
             // Set up marker attributes based on magnitude (marker size) and depth (marker color)
             var markers = {
                 radius : markerSize(feature.properties.mag),
-                fillcolor : markerColor(feature.geometry.coordinates[2]),
+                fillcolor : markerColor(depth),
                 fillOpacity : 0.5,
-                color : "black",
+                color : markerColor(depth),
                 stroke : true,
                 weight : 0.5
             }
