@@ -41,9 +41,9 @@ function createAttributes(earthquakeData) {
             // Set up marker attributes based on magnitude (marker size) and depth (marker color)
             var markers = {
                 radius : markerSize(feature.properties.mag),
-                fillcolor : markerColor(depth),
+                fillColor : markerColor(feature.geometry.coordinates[2]),
                 fillOpacity : 0.5,
-                color : markerColor(depth),
+                color : markerColor(feature.geometry.coordinates[2]),
                 stroke : true,
                 weight : 0.5
             }
