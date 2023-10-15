@@ -11,7 +11,7 @@ d3.json(url).then(function (data) {
 // Create the functions for the characteristics of the objects to be displayed on the map
 // Function for marker size (based on earthequake magnitude)
 function markerSize(magnitude) {
-    return magnitude * 10000;
+    return magnitude * 2000;
 };
 
 // Funtion for marker color (based on earthquake depth)
