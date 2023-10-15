@@ -68,7 +68,7 @@ function createMap(earthquakes) {
 
     // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
     var myMap = L.map("map", {
-        center: [40.7608, 111.8910],
+        center: [37.09, -95.71],
         zoom: 10,
         layers: [grayscale, earthquakes]
     });
