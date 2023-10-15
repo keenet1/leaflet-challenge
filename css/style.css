@@ -17,7 +17,7 @@ html {
 
 .legend {
   line-height: 25px;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .legend i {
