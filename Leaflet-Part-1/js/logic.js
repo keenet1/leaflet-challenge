@@ -16,12 +16,12 @@ function markerSize(magnitude) {
 
 // Funtion for marker color (based on earthquake depth)
 function markerColor(depth) {
-    return depth >=90 ? "#FF0000" :
-        depth < 90 && depth >= 70 ? "#FF5500" :
-        depth < 70 && depth >= 50 ? "#FFAA00" :
-        depth < 50 && depth >= 30 ? "#FFD500" :
-        depth < 30 && depth >= 10 ? "#15EA00" :
-                                    "#00FF00";
+    return depth >=90 ? "#FF0D0D" :
+        depth < 90 && depth >= 70 ? "#FF4E11" :
+        depth < 70 && depth >= 50 ? "#FF8E15" :
+        depth < 50 && depth >= 30 ? "#FFB92E" :
+        depth < 30 && depth >= 10 ? "#ACB334" :
+                                    "#69B34C";
 }
 
 function createAttributes(earthquakeData) {
