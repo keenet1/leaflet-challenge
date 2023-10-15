@@ -43,7 +43,7 @@ function createAttributes(earthquakeData) {
                 radius : markerSize(feature.properties.mag),
                 fillColor : markerColor(feature.geometry.coordinates[2]),
                 fillOpacity : 0.5,
-                color : markerColor(feature.geometry.coordinates[2]),
+                color : "black",
                 stroke : true,
                 weight : 0.5
             }
@@ -58,35 +58,35 @@ function createAttributes(earthquakeData) {
 function createMap(earthquakes) {
     // Create tile layer
     var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
-    attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-    tileSize: 512,
-    maxZoom: 18,
-    zoomOffset: -1,
-    style:    'mapbox/light-v11',
-    access_token: api_key
-  });
+        attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        style:    'mapbox/light-v11',
+        access_token: api_key
+    });
 
-  // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
-  var myMap = L.map("map", {
-    center: [37.6000, -95.6650],
-    zoom: 10,
-    layers: [grayscale, earthquakes]
-  });
+    // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
+    var myMap = L.map("map", {
+        center: [37.6000, -95.6650],
+        zoom: 10,
+        layers: [grayscale, earthquakes]
+    });
 
-  // Add a legend
-  var legend = L.control({position : bottomright});
-  legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend"),
-    grades = [-10, 10, 30, 50, 70, 90];
+    // Add a legend
+    var legend = L.control({position : bottomright});
+    legend.onAdd = function() {
+        var div = L.DomUtil.create("div", "info legend"),
+        depth = [-10, 10, 30, 50, 70, 90];
 
-    div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
+        div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
 
-    // Looping through our intervals and generating a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + markerColor(grades[i] + 1) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-    return div;
-};
-legend.addTo(myMap);
+        // Looping through our intervals and generating a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+            '<i style="background:' + markerColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
+    legend.addTo(myMap);
 };
