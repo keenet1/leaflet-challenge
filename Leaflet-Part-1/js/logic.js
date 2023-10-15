@@ -80,8 +80,6 @@ function createMap(earthquakes) {
         var div = L.DomUtil.create('div', 'info legend');
         depth = [-10, 10, 30, 50, 70, 90];
 
-        div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
-
         // Looping through our intervals and generating a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
