@@ -28,7 +28,7 @@ function createAttributes(earthquakeData) {
 
     // Function for defining what information to display in the pop up when each feature is clicked
     function onEachFeature(feature, layer) {
-        layer.bindPopup(`Location: ${feature.properties.place} <br> Magnitude: ${feature.properties.mag} <br> Depth: {feature.geometry.coordinates[2]}`);
+        layer.bindPopup(`Location: ${feature.properties.place} <br> Magnitude: ${feature.properties.mag} <br> Depth: ${feature.geometry.coordinates[2]}`);
     }
 
     // Create a GeoJSON layer that contains the features (location, magnitude, depth) for each earthquakeData object.
@@ -69,7 +69,7 @@ function createMap(earthquakes) {
   // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
   var myMap = L.map("map", {
     center: [37.6000, -95.6650],
-    zoom: 2,
+    zoom: 10,
     layers: [grayscale, earthquakes]
   });
 
