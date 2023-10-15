@@ -62,7 +62,7 @@ function createMap(earthquakes) {
         tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
-        style: "mapbox/light-v11",
+        style:  'mapbox/light-v11',
         access_token: api_key
     });
 
