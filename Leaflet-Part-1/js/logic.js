@@ -81,7 +81,7 @@ function createMap(earthquakes) {
         depth = [-10, 10, 30, 50, 70, 90];
 
         // Looping through our intervals and generating a label with a colored square for each interval
-        for (var i = 0; i < grades.length; i++) {
+        for (var i = 0; i < depth.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + markerColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
         }
