@@ -11,7 +11,7 @@ d3.json(url).then(function (data) {
 // Create the functions for the characteristics of the objects to be displayed on the map
 // Function for marker size (based on earthequake magnitude)
 function markerSize(magnitude) {
-    return magnitude * 2000;
+    return magnitude * 5000;
 };
 
 // Funtion for marker color (based on earthquake depth)
@@ -69,7 +69,7 @@ function createMap(earthquakes) {
     // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
     var myMap = L.map("map", {
         center: [37.09, -95.71],
-        zoom: 2,
+        zoom: 5,
         layers: [grayscale, earthquakes]
     });
 
