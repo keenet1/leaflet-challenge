@@ -4,7 +4,7 @@ var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.ge
 // Execute a query to the URL and console log the data
 d3.json(url).then(function (data) {
     console.log(data);
-    // Send the data.features response object to the createAttributes functin
+    // Send the data.features response object to the createAttributes function
     createAttributes(data.features);
 });
 
