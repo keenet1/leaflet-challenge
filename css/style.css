@@ -13,7 +13,10 @@ html {
   line-height: 25px;
   color: rgb(0, 0, 0);
   background: rgb(247, 250, 247);
-  padding: 1px 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   border-radius: 5px;
 }
 
