@@ -42,7 +42,7 @@ function createAttributes(earthquakeData) {
             var markers = {
                 radius : markerSize(feature.properties.mag),
                 fillColor : markerColor(feature.geometry.coordinates[2]),
-                fillOpacity : 0.5,
+                fillOpacity : 0.8,
                 color : "black",
                 stroke : true,
                 weight : 0.5
@@ -69,7 +69,7 @@ function createMap(earthquakes) {
     // Create the map by displaying both the "earthquakes" (GeoJSON layer) and the "grayscale" (tile layer) simultaneously
     var myMap = L.map("map", {
         center: [37.09, -95.71],
-        zoom: 10,
+        zoom: 2,
         layers: [grayscale, earthquakes]
     });
 
