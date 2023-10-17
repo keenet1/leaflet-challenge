@@ -6,6 +6,7 @@
 
 ## Viewing the map
 Please use this link to view the map: https://keenet1.github.io/leaflet-challenge/
+
 Please find the code in the folder titled "Leaflet-Part-2" (filename: logic2.js)
 
 ## Background
